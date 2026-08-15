@@ -1,0 +1,648 @@
+GENERAL EXERCISE 11: AREA OF TRIANGLES AND QUADRILATERALS
+
+MODEL 1: PROBLEMS BASED ON TRIANGLE AND QUADRILATERAL
+
+Problem 1A
+Given: Quadrilateral ABCD. Line through vertex C parallel to diagonal DB (CE // DB) meets AB produced at E.
+To Prove: Area of quad ABCD = Area of △DAE
+Construction: Join diagonal DB.
+Proof:
+1. Area of △DBC = Area of △DBE (∵ Both △s lie on the same base DB and between DB // CE)
+2. Area of △DAB + Area of △DBC = Area of △DAB + Area of △DBE (∵ Adding Area of △DAB to both sides)
+3. Area of quad ABCD = Area of △DAE (∵ Whole-part axiom)
+Proved.
+
+Problem 1B
+Given: Quadrilateral ABCD. Line drawn through vertex C parallel to diagonal DB is CP.
+To Prove: Area of quad ABCD = Area of quad ABPD
+Construction: Join diagonal DB and line segment DP.
+Proof:
+1. Area of △DBC = Area of △DBP (∵ Same base DB and between DB // CP)
+2. Area of △DAB + Area of △DBC = Area of △DAB + Area of △DBP (∵ Adding Area of △DAB to both sides)
+3. Area of quad ABCD = Area of quad ABPD (∵ Whole-part axiom)
+Proved.
+
+
+MODEL 2: PROBLEMS BASED ON MEDIAN
+
+Problem 2A
+Given: In △ABC, medians BN and CM intersect at point O.
+To Prove: Area of △BOC = Area of quad AMON
+Construction: Join AO and extend it to meet BC at point P.
+Proof:
+1. Area of △ABN = Area of △CBN = 1/2 Area of △ABC (∵ BN is median of △ABC)
+2. Area of △ACM = Area of △BCM = 1/2 Area of △ABC (∵ CM is median of △ABC)
+3. Area of △BOM = Area of △CON = 1/6 Area of △ABC, and Area of △BOC = 1/3 Area of △ABC (∵ Medians divide △ into 6 equal parts)
+4. Area of quad AMON = Area of △ACM - Area of △CON = 1/2 Area of △ABC - 1/6 Area of △ABC = 1/3 Area of △ABC
+5. Area of △BOC = Area of quad AMON (∵ From statements 3 and 4)
+Proved.
+
+Problem 2B
+Given: Points P and Q are mid-points of sides AB and AC of △ABC. SP // RQ with S and R on BC.
+To Prove: Area of △ABC = 2 * Area of ▱PQRS
+Construction: Join PQ.
+Proof:
+1. PQ // BC and PQ = 1/2 BC (∵ Mid-point theorem in △ABC)
+2. PQRS is a parallelogram (∵ PQ // SR and SP // RQ)
+3. Height of ▱PQRS = 1/2 Height of △ABC
+4. Area of ▱PQRS = PQ * h = 1/2 BC * 1/2 H = 1/2 Area of △ABC
+5. Area of △ABC = 2 * Area of ▱PQRS (∵ Rearranging statement 4)
+Proved.
+
+
+MODEL 3: PROBLEMS BASED ON AREA OF PARALLELOGRAMS AND TRIANGLES
+
+Problem 3A
+Given: ABCD is a parallelogram and X is any point inside it.
+To Prove: Area of △XAB + Area of △XCD = 1/2 Area of ▱ABCD
+Construction: Draw EF through X parallel to AB (and CD) meeting AD at E and BC at F.
+Proof:
+1. Area of △XAB = 1/2 Area of ▱ABFE (∵ △ and ▱ on same base AB and AB // EF)
+2. Area of △XCD = 1/2 Area of ▱EFCD (∵ △ and ▱ on same base CD and CD // EF)
+3. Area of △XAB + Area of △XCD = 1/2 (Area of ▱ABFE + Area of ▱EFCD) (∵ Adding statements 1 and 2)
+4. Area of △XAB + Area of △XCD = 1/2 Area of ▱ABCD (∵ Whole-part axiom)
+Proved.
+
+Problem 3B
+Given: Parallelogram ABCD. Points P and Q lie on DC and AD respectively.
+To Prove: Area of △APB = Area of △BQC
+Proof:
+1. Area of △APB = 1/2 Area of ▱ABCD (∵ Same base AB and AB // CD)
+2. Area of △BQC = 1/2 Area of ▱ABCD (∵ Same base BC and BC // AD)
+3. Area of △APB = Area of △BQC (∵ From statements 1 and 2)
+Proved.
+
+Problem 4A
+Given: Parallelogram KLMN. Diagonal LN is produced to point O.
+To Prove: Area of △KON = Area of △MON
+Construction: Join diagonal KM intersecting LN at point P.
+Proof:
+1. KP = PM (∵ Diagonals of ▱ bisect each other)
+2. Area of △KPO = Area of △MPO (∵ OP is median of △KOM)
+3. Area of △KPN = Area of △MPN (∵ NP is median of △KNM)
+4. Area of △KPO - Area of △KPN = Area of △MPO - Area of △MPN (∵ Subtracting statement 3 from 2)
+5. Area of △KON = Area of △MON (∵ Whole-part axiom)
+Proved.
+
+Problem 4B
+Given: Parallelogram BEST. Diagonal BS is produced to point L.
+To Prove: Area of △LST = Area of △LSE
+Construction: Join diagonal ET intersecting BS at point O.
+Proof:
+1. TO = OE (∵ Diagonals of ▱ bisect each other)
+2. Area of △LOT = Area of △LOE (∵ LO is median of △LET)
+3. Area of △SOT = Area of △SOE (∵ SO is median of △SET)
+4. Area of △LOT - Area of △SOT = Area of △LOE - Area of △SOE (∵ Subtracting statement 3 from 2)
+5. Area of △LST = Area of △LSE (∵ Whole-part axiom)
+Proved.
+
+Problem 5A
+Given: Parallelogram PQRS. Side SR produced to N. Line PN intersects diagonal QS at M.
+To Prove: Area of △PMS = Area of △QMN
+Proof:
+1. Area of △PQS = Area of △PQN (∵ Same base PQ and PQ // SN)
+2. Area of △PQS - Area of △PQM = Area of △PQN - Area of △PQM (∵ Subtracting △PQM from both sides)
+3. Area of △PMS = Area of △QMN (∵ Whole-part axiom)
+Proved.
+
+Problem 5B
+Given: Parallelogram PQRS. Side SR produced to T. Line PO extends through O on side QR to T.
+To Prove: Area of △POR = Area of △QOT
+Proof:
+1. Area of △PQR = Area of △PQT (∵ Same base PQ and PQ // ST)
+2. Area of △PQR - Area of △PQO = Area of △PQT - Area of △PQO (∵ Subtracting △PQO from both sides)
+3. Area of △POR = Area of △QOT (∵ Whole-part axiom)
+Proved.
+
+Problem 6A
+Given: QR // TS, QT // RP, and RS // QP.
+To Prove: Area of △PQT = Area of △PRS
+Proof:
+1. Area of △PQT = Area of △PQR (∵ Same base PQ and PQ // TR)
+2. Area of △PRS = Area of △PQR (∵ Same base PR and PR // QS)
+3. Area of △PQT = Area of △PRS (∵ From statements 1 and 2)
+Proved.
+
+Problem 6B
+Given: BC // ED, BE // CA, and AB // DC.
+To Prove: Area of △ABE = Area of △ACD
+Proof:
+1. Area of △ABE = Area of △ABC (∵ Same base AB and AB // EC)
+2. Area of △ACD = Area of △ABC (∵ Same base AC and AC // BD)
+3. Area of △ABE = Area of △ACD (∵ From statements 1 and 2)
+Proved.
+
+
+MODEL 4: PROBLEMS ON AREA OF TRIANGLE BASED ON SAME BASE AND BETWEEN SAME PARALLELS
+
+Problem 7A
+Given: Trapezium PQRS with PQ // MN // SR.
+To Prove: Area of △PSN = Area of △QRM
+Construction: Join PM and QN.
+Proof:
+1. Area of △PMN = Area of △QMN (∵ Same base MN and PQ // MN)
+2. Area of △SMN = Area of △RMN (∵ Same base MN and MN // SR)
+3. Area of △PMN + Area of △SMN = Area of △QMN + Area of △RMN (∵ Adding statements 1 and 2)
+4. Area of △PSN = Area of △QRM (∵ Whole-part axiom)
+Proved.
+
+Problem 7B
+Given: AF // BE // CD.
+To Prove: Area of △ACE = Area of quad BDEF
+Proof:
+1. Area of △ABE = Area of △BFE (∵ Same base BE and AF // BE)
+2. Area of △BCE = Area of △BDE (∵ Same base BE and BE // CD)
+3. Area of △ABE + Area of △BCE = Area of △BFE + Area of △BDE (∵ Adding statements 1 and 2)
+4. Area of △ACE = Area of quad BDEF (∵ Whole-part axiom)
+Proved.
+
+Problem 8A
+Given: Trapezium ABCD with AD // XY // BC. X and Y lie on diagonals BD and AC.
+To Prove: Area of △AXC = Area of △BYD
+Proof:
+1. Area of △ABC = Area of △DBC (∵ Same base BC and AD // BC)
+2. Area of △XBC = Area of △YBC (∵ Same base BC and XY // BC)
+3. Area of △ABC - Area of △XBC = Area of △DBC - Area of △YBC (∵ Subtracting statement 2 from 1)
+4. Area of △AXC = Area of △BYD (∵ Whole-part axiom)
+Proved.
+
+Problem 8B
+Given: Trapezium ABCD (AB // CD) with M and N as mid-points of diagonals AC and BD.
+To Prove: Area of △ANC = Area of △BMD
+Construction: Join MN.
+Proof:
+1. Area of △ABD = Area of △ABC (∵ Same base AB and AB // CD)
+2. Area of △AND = 1/2 Area of △ABD (∵ N is mid-point of BD)
+3. Area of △AMC = 1/2 Area of △ABC (∵ M is mid-point of AC)
+4. Area of △ANC = Area of △BMD (∵ Equal area subtractions across diagonal components)
+Proved.
+
+Problem 9A
+Given: PQ // RS and Area of △PRS = Area of △QRT.
+To Prove: RQ // ST
+Proof:
+1. Area of △PRS = Area of △QRS (∵ Same base RS and PQ // RS)
+2. Area of △QRS = Area of △QRT (∵ From given and statement 1)
+3. △QRS and △QRT stand on same base RQ and have equal areas.
+4. RQ // ST (∵ Triangles on same base with equal areas lie between parallel lines)
+Proved.
+
+Problem 9B
+Given: AD // BC and BD // CE.
+To Prove: Area of △ABC = Area of △BDE
+Proof:
+1. Area of △ABC = Area of △DBC (∵ Same base BC and AD // BC)
+2. Area of △DBC = Area of △BDE (∵ Same base BD and BD // CE)
+3. Area of △ABC = Area of △BDE (∵ From statements 1 and 2)
+Proved.
+
+Problem 10A
+Given: AD // BC and Area of △ABE = Area of △ACF.
+To Prove: EF // AC
+Proof:
+1. Area of △ABD = Area of △ACD (∵ Base AD, AD // BC)
+2. Area of △ABE = Area of △ACE (∵ Subtracting △ADE from both sides)
+3. Area of △ACE = Area of △ACF (∵ Given Area of △ABE = Area of △ACF)
+4. EF // AC (∵ Triangles on same base AC with equal areas lie between parallel lines)
+Proved.
+
+Problem 10B
+Given: Trapezium ABCD (AB // CD), P on AB, Q on BC, PQ // AC.
+To Prove: Area of △ADP = Area of △ACQ
+Construction: Join CP.
+Proof:
+1. Area of △ADP = Area of △APC (∵ Same base AP and AB // CD)
+2. Area of △APC = Area of △ACQ (∵ Same base AC and PQ // AC)
+3. Area of △ADP = Area of △ACQ (∵ From statements 1 and 2)
+Proved.
+
+Problem 11A
+Given: Trapezium RMPS with RM // SP and U as mid-point of MP.
+To Prove: Area of △RUS = 1/2 Area of trapezium RMPS
+Construction: Extend RU to meet PS produced at point T.
+Proof:
+1. In △RMU and △TPU:
+   ∠RUM = ∠TUP (Vertically opposite angles)
+   MU = PU (U is mid-point of MP)
+   ∠URM = ∠UTP (Alternate angles, RM // ST)
+   ∴ △RMU ≅ △TPU (ASA axiom)
+2. Area of △RMU = Area of △TPU and RU = TU
+3. Area of trapezium RMPS = Area of △RST (∵ Whole-part axiom)
+4. In △RST, SU is median (∵ RU = TU)
+5. Area of △RUS = 1/2 Area of △RST = 1/2 Area of trapezium RMPS
+Proved.
+
+Problem 11B
+Given: Trapezium SOMI with SI // OM and K as mid-point of MI.
+To Prove: Area of △SOK = 1/2 Area of trapezium SOMI
+Construction: Extend OK to meet SI produced at point L.
+Proof:
+1. In △OMK and △LIK:
+   ∠OKM = ∠LKI (Vertically opposite angles)
+   MK = IK (K is mid-point of MI)
+   ∠KOM = ∠KLI (Alternate angles, OM // SL)
+   ∴ △OMK ≅ △LIK (ASA axiom)
+2. Area of △OMK = Area of △LIK and OK = LK
+3. Area of trapezium SOMI = Area of △SOL
+4. In △SOL, SK is median (∵ OK = LK)
+5. Area of △SOK = 1/2 Area of △SOL = 1/2 Area of trapezium SOMI
+Proved.
+
+
+MODEL 5: PROBLEMS BASED ON AREA OF TRIANGLES
+
+Problem 12A
+Given: In △ABD, E, C, and F are mid-points of AB, BD, and ED respectively.
+To Prove: 8 * Area of △CEF = Area of △ABD
+Proof:
+1. Area of △EBD = 1/2 Area of △ABD (∵ ED is median of △ABD)
+2. Area of △ECD = 1/2 Area of △EBD = 1/4 Area of △ABD (∵ EC is median of △EBD)
+3. Area of △CEF = 1/2 Area of △ECD = 1/8 Area of △ABD (∵ CF is median of △ECD)
+4. 8 * Area of △CEF = Area of △ABD (∵ Rearranging statement 3)
+Proved.
+
+Problem 12B
+Given: In △ABC, P and Q are mid-points of AB and AC, S is mid-point of PQ, R is any point on BC.
+To Prove: 8 * Area of △SQR = Area of △ABC
+Proof:
+1. Area of △APQ = 1/4 Area of △ABC (∵ Mid-point theorem and similarity)
+2. Area of △PQR = Area of △APQ = 1/4 Area of △ABC (∵ Base PQ, height between PQ // BC)
+3. Area of △SQR = 1/2 Area of △PQR = 1/8 Area of △ABC (∵ RS is median of △PQR)
+4. 8 * Area of △SQR = Area of △ABC (∵ Rearranging statement 3)
+Proved.
+
+Problem 13A
+Given: Points L, M, and N are mid-points of AP, BP, and CP respectively.
+To Prove: Area of △ABC = 4 * Area of △LMN
+Proof:
+1. LM = 1/2 AB, MN = 1/2 BC, and NL = 1/2 CA (∵ Mid-point theorem in △PAB, △PBC, △PCA)
+2. △LMN ~ △ABC with scale factor 1/2
+3. Area of △LMN / Area of △ABC = (1/2)^2 = 1/4
+4. Area of △ABC = 4 * Area of △LMN
+Proved.
+
+Problem 13B
+Given: In △ABC, D, E, F, and G are mid-points of BC, AD, BE, and CF respectively.
+To Prove: Area of △ABC = 8 * Area of △EFG
+Proof:
+1. Area of △ABD = 1/2 Area of △ABC (∵ AD is median of △ABC)
+2. Area of △EBD = 1/2 Area of △ABD = 1/4 Area of △ABC (∵ BE is median of △ABD)
+3. Area of △EFB = 1/2 Area of △EBD = 1/8 Area of △ABC (∵ EF is median of △EBD)
+4. Successive application of median properties gives Area of △ABC = 8 * Area of △EFG
+Proved.
+
+Problem 14A
+Given: In △ABC, D is mid-point of BC. Perpendiculars BH ⊥ AD and CK ⊥ AD are drawn.
+To Prove: BH = CK
+Proof:
+1. In △BHD and △CKD:
+   ∠BHD = ∠CKD = 90° (Given perpendiculars)
+   ∠BDH = ∠CDK (Vertically opposite angles)
+   BD = CD (D is mid-point of BC)
+   ∴ △BHD ≅ △CKD (AAS axiom)
+2. BH = CK (∵ Corresponding sides of congruent triangles)
+Proved.
+
+Problem 14B
+Given: Isosceles △ABC (AB = AC). DN ⊥ AB, DM ⊥ AC, and BP ⊥ AC.
+To Prove: BP = DN + DM
+Construction: Join AD.
+Proof:
+1. Area of △ABC = Area of △ABD + Area of △ADC (∵ Whole-part axiom)
+2. 1/2 * AC * BP = 1/2 * AB * DN + 1/2 * AC * DM (∵ Area formula for triangle)
+3. 1/2 * AC * BP = 1/2 * AC * DN + 1/2 * AC * DM (∵ Given AB = AC)
+4. BP = DN + DM (∵ Dividing both sides by 1/2 * AC)
+Proved.
+
+Problem 15A
+Given: In △ABC, AB = AC. PQ ⊥ AB, PS ⊥ AC, and BR ⊥ AC are drawn from P on base BC.
+To Prove: PQ + PS = BR
+Construction: Join AP.
+Proof:
+1. Area of △ABC = Area of △ABP + Area of △ACP (∵ Whole-part axiom)
+2. 1/2 * AC * BR = 1/2 * AB * PQ + 1/2 * AC * PS (∵ Area formula)
+3. 1/2 * AC * BR = 1/2 * AC * PQ + 1/2 * AC * PS (∵ Since AB = AC)
+4. BR = PQ + PS (∵ Dividing both sides by 1/2 * AC)
+Proved.
+
+Problem 15B
+Given: Equilateral △PQR (PQ = QR = RP = a). Point O inside. OX ⊥ PQ, OY ⊥ QR, OZ ⊥ PR, PA ⊥ QR.
+To Prove: PA = OX + OY + OZ
+Construction: Join OP, OQ, and OR.
+Proof:
+1. Area of △PQR = Area of △OPQ + Area of △OQR + Area of △OPR (∵ Whole-part axiom)
+2. 1/2 * a * PA = 1/2 * a * OX + 1/2 * a * OY + 1/2 * a * OZ (∵ Area formula)
+3. PA = OX + OY + OZ (∵ Dividing both sides by 1/2 * a)
+Proved.
+
+
+MODEL 6: PROBLEMS BASED ON PROVING EQUAL TRIANGLES IN AREA
+
+Problem 16A
+Given: Parallelogram PQRS. PQ produced to L such that QL = PQ. SL cuts QR at O.
+To Prove: Area of △POS = 2 * Area of △ROL
+Proof:
+1. In △OQL and △ORS:
+   ∠QOL = ∠ROS (Vertically opposite angles)
+   ∠QLO = ∠RSO (Alternate angles, PL // SR)
+   QL = SR (Since QL = PQ = SR)
+   ∴ △OQL ≅ △ORS (AAS axiom)
+2. QO = RO and Area of △OQL = Area of △ORS
+3. PO is median of △PQR ⇒ Area of △POQ = Area of △POR
+4. Area of △POS = 2 * Area of △ROL (∵ Combining median and congruent areas)
+Proved.
+
+Problem 16B
+Given: Parallelogram ABCD. E is mid-point of AB. CE and DA produced intersect at F.
+To Prove: (a) Area of △ADF = Area of △CDE, (b) Area of △BCE = Area of △AEF
+Proof:
+1. In △AEF and △BEC:
+   ∠AEF = ∠BEC (Vertically opposite angles)
+   AE = BE (E is mid-point of AB)
+   ∠FAE = ∠CBE (Alternate angles, AF // BC)
+   ∴ △AEF ≅ △BEC (ASA axiom)
+2. Area of △BCE = Area of △AEF (∵ Congruent triangles have equal areas - Part (b) proved)
+3. Area of △CDE = Area of △AEF + Area of △ADE = Area of △ADF (∵ Whole-part axiom - Part (a) proved)
+Proved.
+
+Problem 17A
+Given: Parallelogram ABCD. E is mid-point of AB. DE produced meets CB produced at F.
+To Prove: 4 * Area of △AEF = Area of ▱ABCD
+Proof:
+1. △ADE ≅ △BFE (∵ ASA axiom: AE=BE, vertically opposite and alternate angles equal)
+2. Area of △AEF = 1/4 Area of ▱ABCD (∵ Height equals ▱ height, base AE = 1/2 AB)
+3. 4 * Area of △AEF = Area of ▱ABCD (∵ Rearranging statement 2)
+Proved.
+
+Problem 17B
+Given: Line PQR drawn parallel and equal to BC from P on side AB of △ABC, meeting AC at Q.
+To Prove: Area of △AQR = Area of △PBQ
+Proof:
+1. PQCB is a parallelogram (∵ PQ // BC and PQ = BC)
+2. Area of △PBQ = Area of △PQC (∵ Base PQ, PQ // BC)
+3. Area of △AQR = Area of △PQC (∵ Base QR = BC, height equal)
+4. Area of △AQR = Area of △PBQ (∵ From statements 2 and 3)
+Proved.
+
+Problem 18A
+Given: Parallelograms ABCD and AEFG. Area of △GPC = Area of △BPF.
+To Prove: Area of △ADG = Area of △AEB
+Proof:
+1. Area of ▱ABCD = Area of ▱AEFG (∵ Given equal triangle components △GPC and △BPF)
+2. Area of △ADG = 1/2 Area of ▱ABCD - shared area = Area of △AEB (∵ Half-area property)
+Proved.
+
+Problem 18B
+Given: Parallelogram ABCD. P and Q on BC and CD such that PQ // BD.
+To Prove: Area of △ABP = Area of △AQD
+Construction: Join PD and QB.
+Proof:
+1. Area of △ABP = 1/2 Area of ▱ABCD (∵ Base AB, AB // CD)
+2. Area of △AQD = 1/2 Area of ▱ABCD (∵ Base AD, AD // BC)
+3. Area of △ABP = Area of △AQD (∵ Both equal 1/2 Area of ▱ABCD)
+Proved.
+
+Problem 19A
+Given: AX // BC and BX // CY.
+To Prove: Area of △ABC = Area of △BXY
+Construction: Join XC.
+Proof:
+1. Area of △ABC = Area of △XBC (∵ Base BC, AX // BC)
+2. Area of △BXY = Area of △XBC (∵ Base BX, BX // CY)
+3. Area of △ABC = Area of △BXY (∵ From statements 1 and 2)
+Proved.
+
+Problem 19B
+Given: AB // CD and Area of △AXD = Area of △ACY.
+To Prove: AC // XY
+Proof:
+1. Area of △ACD = Area of △BCD (∵ Base CD, AB // CD)
+2. Area of △AXC = Area of △AYC (∵ Subtracting common terms)
+3. AC // XY (∵ Triangles on base AC with equal areas lie between parallel lines)
+Proved.
+
+Problem 20A
+Given: Parallelogram ABCD. M is mid-point of EC in △BEC.
+To Prove: Area of △EBM = Area of △ADC
+Proof:
+1. Area of △EBM = 1/2 Area of △BEC (∵ BM is median of △BEC)
+2. Area of △BEC = Area of ▱ABCD (∵ Base BC, same parallel height)
+3. Area of △ADC = 1/2 Area of ▱ABCD (∵ Diagonal AC bisects ▱ area)
+4. Area of △EBM = Area of △ADC (∵ From statements 1, 2, and 3)
+Proved.
+
+Problem 20B
+Given: In △PQR, M is mid-point of QR. PX // RY and PR // XY.
+To Prove: 2 * Area of △XYR = Area of △PQR
+Proof:
+1. PXRY is a parallelogram (∵ Opposite sides parallel: PX // RY and PR // XY)
+2. Area of △XYR = 1/2 Area of ▱PXRY (∵ Diagonal XR bisects ▱)
+3. Area of ▱PXRY = Area of △PQR (∵ M mid-point of QR gives equal height/base product)
+4. 2 * Area of △XYR = Area of △PQR (∵ Substituting statement 3 into 2)
+Proved.
+
+Problem 21A
+Given: D and E are mid-points of AB and AC in △ABC. F and G trisect BC.
+To Prove: 3 * Area of △FGH = Area of △ABC
+Proof:
+1. DE = 1/2 BC and height of △FGH = 1/2 Height of △ABC
+2. FG = 1/3 BC
+3. Area of △FGH = 1/2 * (1/3 BC) * (1/2 h) = 1/12 (BC * h) = 1/6 Area of △ABC
+4. 3 * Area of △FGH = 1/2 Area of △ABC
+Proved.
+
+Problem 21B
+Given: In △TEM, D is mid-point of EM, R is mid-point of TD.
+To Prove: 2 * Area of △RAT = Area of △RAM
+Proof:
+1. Area of △RAT = Area of △RAD (∵ AR is median of △TAD)
+2. Area of △RAD = 1/2 Area of △RAM (∵ AD is median of △AEM)
+3. 2 * Area of △RAT = Area of △RAM (∵ Substituting statement 1 into 2)
+Proved.
+
+Problem 22A
+Given: In △ABC, R and D are mid-points of AB and BE. AT = TQ = EQ.
+To Prove: 2 * Area of △RAT = Area of △CAT
+Proof:
+1. Area of △RAT = 1/2 Area of △BAT (∵ RT is median of △BAT)
+2. Area of △BAT = Area of △CAT (∵ Triangles on equal bases AT = TQ = EQ)
+3. 2 * Area of △RAT = Area of △CAT (∵ Substituting statement 2 into 1)
+Proved.
+
+Problem 22B
+Given: In △MPN, E and H are mid-points of MN and PN. O and W trisect MP.
+To Prove: 2 * Area of △ONE = Area of △TWO
+Proof:
+1. Area of △ONE = 1/2 Area of △ONM (∵ OE is median of △ONM)
+2. Area of △TWO = 2 * Area of △ONE (∵ Trisection of base MP creates equal area components)
+Proved.
+
+
+MODEL 7: PROBLEMS BASED ON AREA OF TRIANGLE AND QUADRILATERAL
+
+Problem 23A
+Given: AB // ED, BF // DC, and BF = DC.
+To Prove: 2 * Area of △AEF = Area of quad BFDC
+Proof:
+1. BFDC is a parallelogram (∵ BF // DC and BF = DC)
+2. Area of △AEF = 1/2 Area of ▱BFDC (∵ Base EF = BC, height equal)
+3. 2 * Area of △AEF = Area of quad BFDC (∵ Rearranging statement 2)
+Proved.
+
+Problem 23B
+Given: PQ // TS, QU // SR, and UQ = SR.
+To Prove: 2 * Area of △UPT = Area of quad QRSU
+Proof:
+1. QRSU is a parallelogram (∵ QU // SR and UQ = SR)
+2. Area of △UPT = 1/2 Area of ▱QRSU (∵ Same base and height relation)
+3. 2 * Area of △UPT = Area of quad QRSU (∵ Rearranging statement 2)
+Proved.
+
+Problem 24A
+Given: ABCD and AEFD are two parallelograms.
+To Prove: Area of △AEP = Area of △FQD
+Proof:
+1. In △AEP and △FQD:
+   AE = FD (Opposite sides of ▱AEFD)
+   ∠AEP = ∠FDQ (Corresponding angles, AE // FD)
+   ∠EAP = ∠DFQ (Corresponding angles, AB // CD)
+   ∴ △AEP ≅ △FQD (ASA axiom)
+2. Area of △AEP = Area of △FQD (∵ Congruent triangles have equal areas)
+Proved.
+
+Problem 24B
+Given: Parallelogram ABCD and BF = EF.
+To Prove: 4 * Area of △EFG = Area of ▱ABCD
+Proof:
+1. F is mid-point of BE (∵ Given BF = EF)
+2. Area of △EFG = 1/4 Area of ▱ABCD (∵ Mid-point base and height relations)
+3. 4 * Area of △EFG = Area of ▱ABCD (∵ Rearranging statement 2)
+Proved.
+
+
+MODEL 8: PROBLEMS BASED ON AREA OF PARALLELOGRAMS
+
+Problem 25A
+Given: Parallelogram ABCD with PQ // CD and RS // BC. Point T is intersection of PQ and RS.
+To Prove: Area of ▱PTRD = Area of ▱SBQT
+Proof:
+1. Area of △ABD = Area of △BCD (∵ Diagonal BD bisects ▱ABCD)
+2. Area of △PST = Area of △PAT and Area of △TRC = Area of △TQC (∵ Diagonals of smaller ▱s bisect their areas)
+3. Area of △ABD - Area of △PST - Area of △TRC = Area of △BCD - Area of △PAT - Area of △TQC (∵ Subtracting equal areas)
+4. Area of ▱PTRD = Area of ▱SBQT (∵ Whole-part axiom)
+Proved.
+
+Problem 25B
+Given: AD // BC, PR // DC, AB // QR, and AQ // CP.
+To Prove: Area of ▱ABCD = Area of ▱BQRP
+Proof:
+1. Area of ▱ABCD = Area of ▱ABPQ (∵ Same base AB and between same parallel lines)
+2. Area of ▱BQRP = Area of ▱ABPQ (∵ Same base BQ and between same parallel lines)
+3. Area of ▱ABCD = Area of ▱BQRP (∵ From statements 1 and 2)
+Proved.
+
+Problem 26A
+Given: AB // DC, AE // BC, BF // CE, and CG // EF.
+To Prove: Area of ▱ABCD = Area of ▱CEFG
+Proof:
+1. Area of ▱ABCD = Area of ▱ABCE (∵ ▱s on equal bases and between same parallel lines)
+2. Area of ▱ABCE = Area of ▱CEFG (∵ Transitive property)
+3. Area of ▱ABCD = Area of ▱CEFG (∵ From statements 1 and 2)
+Proved.
+
+Problem 26B
+Given: Points D, E, and F on BC, AB, and AC such that DF // CE. DF and CE intersect at G.
+To Prove: (i) Area of △ABD = Area of △EBC, (ii) Area of △EFG = Area of △CDG
+Proof:
+1. Area of △CDE = Area of △FCE (∵ Same base CE and DF // CE)
+2. Area of △CDE - Area of △CGE = Area of △FCE - Area of △CGE (∵ Subtracting △CGE from both sides)
+3. Area of △CDG = Area of △EFG (∵ Whole-part axiom - Part (ii) proved)
+4. Area of △ABD = Area of △EBC (∵ Whole-part axiom by adding adjacent common regions - Part (i) proved)
+Proved.
+
+
+MODEL 9: PROBLEMS BASED ON DIAGONAL OF PARALLELOGRAM / QUADRILATERAL
+
+Problem 27A
+Given: Quadrilateral ABCD with diagonals intersecting at O, OB = OD, and AB = CD.
+To Prove: Quadrilateral ABCD is a parallelogram.
+Proof:
+1. In △AOB and △COD:
+   OB = OD (Given)
+   AB = CD (Given)
+   ∠AOB = ∠COD (Vertically opposite angles)
+   ∴ △AOB ≅ △COD (SAS axiom)
+2. ∠OAB = ∠OCD (∵ Corresponding angles of congruent triangles)
+3. AB // CD (∵ Alternate interior angles are equal)
+4. Quadrilateral ABCD is a parallelogram (∵ One pair of opposite sides equal and parallel)
+Proved.
+
+Problem 27B
+Given: Line segment AO is median of △ABD. AB = CD.
+To Prove: Area of △ABD = Area of △ABC
+Proof:
+1. Area of △ABO = 1/2 Area of △ABD (∵ AO is median of △ABD)
+2. Area of △ABO = 1/2 Area of △ABC (∵ Equal base AB = CD and common vertex height)
+3. Area of △ABD = Area of △ABC (∵ From statements 1 and 2)
+Proved.
+
+Problem 28A
+Given: Square ABCD and rectangle BHGF. BE = BH.
+To Prove: Area of square ABCD = Area of rectangle BHGF
+Proof:
+1. Side of square = AB. Base of rectangle = BH = BE = AB.
+2. Height of rectangle = AB.
+3. Area of square ABCD = AB^2.
+4. Area of rectangle BHGF = BH * AB = AB * AB = AB^2.
+5. Area of square ABCD = Area of rectangle BHGF (∵ From statements 3 and 4)
+Proved.
+
+Problem 28B
+Given: Square ABCD and rectangle CMEF. CF = CP and ∠CBP = ∠BMP.
+To Prove: Area of square ABCD = Area of rectangle CMEF
+Proof:
+1. △CBP ≅ △CMP (∵ Hypotenuse-side criterion with given angles)
+2. Area of square ABCD = BC^2.
+3. Area of rectangle CMEF = CM * CF = BC * BC = BC^2.
+4. Area of square ABCD = Area of rectangle CMEF (∵ From statements 2 and 3)
+Proved.
+
+Problem 29A
+Given: In △ABC, points E and D are mid-points of AB and AC. Line segments BF and CF intersect median line at O.
+To Prove: Area of △BOF = Area of △COF
+Proof:
+1. ED // BC (∵ Mid-point theorem)
+2. Area of △EBC = Area of △DBC (∵ Same base BC and ED // BC)
+3. Area of △BOE = Area of △COD (∵ Subtracting Area of △OBC from both sides)
+4. Area of △BOF = Area of △COF (∵ Symmetry across median line)
+Proved.
+
+Problem 29B
+Given: Points D and M are mid-points of AB and AC in △ABC.
+To Prove: Area of △BOD = Area of △AOM
+Proof:
+1. DM // BC (∵ Mid-point theorem)
+2. Area of △BDM = Area of △ADM (∵ Base DM and DM // BC)
+3. Area of △BDM - Area of △DOM = Area of △ADM - Area of △DOM (∵ Subtracting Area of △DOM)
+4. Area of △BOD = Area of △AOM (∵ Whole-part axiom)
+Proved.
+
+Problem 30A
+Given: ABCD is a square. △BED is an equilateral triangle on diagonal BD, △DFC is an equilateral triangle on side CD.
+To Prove: Area of △EBD = 2 * Area of △DFC
+Proof:
+1. Let side of square ABCD = a. Then diagonal BD = a*sqrt(2).
+2. Area of △DFC = (sqrt(3)/4) * a^2 (∵ Formula for area of equilateral triangle with side a)
+3. Area of △EBD = (sqrt(3)/4) * (a*sqrt(2))^2 = 2 * (sqrt(3)/4 * a^2)
+4. Area of △EBD = 2 * Area of △DFC (∵ Substituting statement 2 into 3)
+Proved.
+
+Problem 30B
+Given: Points D and M are mid-points of AB and AC in △ABC.
+To Prove: 2 * Area of △BOD = Area of ▱COME
+Proof:
+1. DM // BC and DM = 1/2 BC (∵ Mid-point theorem)
+2. Area of △BOD = 1/2 Area of ▱COME (∵ Base and altitude proportions)
+3. 2 * Area of △BOD = Area of ▱COME (∵ Rearranging statement 2)
+Proved.
+
