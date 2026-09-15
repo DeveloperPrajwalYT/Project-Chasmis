@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080c18">
+  <meta name="description"
+        content="Class 10 SEE practice sets for Vijaya samudayik shiksha sadan.">
+  <title>Chasmis | SEE Practice Library</title>
+
+  <!-- ZIP downloads use this pinned external dependency. -->
+  <script defer
+    src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js)">
+  </script>
+
+  <style>
+    /* =========================================================
+       01. THEME & FOUNDATION
+       ========================================================= */
+    :root {
+      color-scheme: dark;
+      --bg: #080c18;
+      --panel: #11182b;
+      --panel-hover: #17213a;
+      --text: #f3f6ff;
+      --muted: #a0adc6;
+      --border: #ffffff16;
+      --blue: #548cff;
+      --cyan: #64e0f5;
+      --radius: 23px;
+      --shadow: 0 24px 80px #0004;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+                   BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button, input { font: inherit; }
+    button, a, input { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; cursor: pointer; }
+    button:disabled { opacity: .45; cursor: not-allowed; }
+    a { color: inherit; }
+    button, a { touch-action: manipulation; }
+    :focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+    [hidden] { display: none !important; }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .ambient::before, .ambient::after {
+      content: "";
+      position: absolute;
+      width: 55vw;
+      height: 55vw;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: .13;
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+
+    .ambient::before { background: #3169ff; top: -35vw; left: -10vw; }
+    .ambient::after {
+      background: #7945e5;
+      right: -30vw;
+      top: 25%;
+      animation-delay: -8s;
+    }
+
+    .shell { width: min(1180px, 92%); margin: auto; }
+    .icon { width: 21px; height: 21px; flex-shrink: 0; }
+    .muted { color: var(--muted); }
+
+    .icon-btn {
+      display: inline-grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #ffffff06;
+      text-decoration: none;
+      transition: background .2s, transform .2s, border-color .2s;
+    }
+
+    .icon-btn:hover {
+      background: #548cff25;
+      border-color: #548cff70;
+      transform: translateY(-2px);
+    }
+
+    .icon-btn.active {
+      color: var(--cyan);
+      border-color: var(--cyan);
+      background: #64e0f514;
+    }
+
+    .primary { background: var(--blue); color: white; }
+    .primary:hover { background: #679aff; }
+
+    /* =========================================================
+       02. HEADER & HERO
+       ========================================================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #080c18dc;
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(140deg, var(--blue), #7455ed);
+      box-shadow: 0 8px 30px #548cff35;
+    }
+
+    .brand strong { display: block; letter-spacing: -.6px; font-size: 21px; }
+    .brand small { font-size: 10px; letter-spacing: 2px; color: var(--muted); }
+    .nav-actions { display: flex; gap: 8px; }
+
+    .hero { padding: 65px 0 36px; animation: enter .7s both; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 16px #64e0f590;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 1.04;
+      letter-spacing: -3px;
+      margin: 22px 0;
+      max-width: 900px;
+    }
+
+    h1 span {
+      background: linear-gradient(100deg, #72a1ff, #70e0ef);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p { color: var(--muted); line-height: 1.8; max-width: 650px; }
+    .school { color: #d5def1; }
+    .stats { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px; }
+    .stat strong { display: block; font-size: 25px; }
+    .stat span { font-size: 12px; color: var(--muted); }
+
+    /* =========================================================
+       03. LIBRARY & CARDS
+       ========================================================= */
+    .library {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: #0e1525c9;
+      box-shadow: var(--shadow);
+      margin-bottom: 35px;
+      min-height: 350px;
+    }
+
+    .toolbar { display: flex; align-items: center; gap: 12px; }
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      background: #080d19;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 0 15px;
+    }
+
+    .search .icon { color: var(--muted); }
+    .search input {
+      width: 100%;
+      min-width: 0;
+      height: 49px;
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      outline: none;
+    }
+
+    .search:focus-within { border-color: var(--blue); }
+    .search input::placeholder { color: #7988a5; }
+
+    .breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 23px 0 15px;
+      font-size: 13px;
+    }
+
+    .crumb {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 5px;
+      border-radius: 6px;
+      overflow-wrap: anywhere;
+    }
+
+    .crumb:hover, .crumb.current { color: var(--cyan); }
+    .section-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    h2 { margin: 0; font-size: 19px; letter-spacing: -.5px; }
+    #resultCount { color: var(--muted); font-size: 12px; }
+
+    .notice {
+      padding: 12px 15px;
+      border-radius: 12px;
+      background: #548cff10;
+      border: 1px solid #548cff25;
+      color: #bccdf3;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      overflow-wrap: anywhere;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      min-width: 0;
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      animation: enter .45s both;
+      animation-delay: var(--delay, 0ms);
+      transition: transform .22s, border-color .22s, background .22s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #548cff55;
+      background: var(--panel-hover);
+    }
+
+    .card-open {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 19px 19px 12px;
+      background: transparent;
+      border: 0;
+    }
+
+    .thumbnail {
+      height: 125px;
+      border-radius: 14px;
+      margin-bottom: 17px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: linear-gradient(130deg, #548cff14, #7455ed14);
+      color: #85aaff;
+    }
+
+    .thumbnail > .icon { width: 49px; height: 49px; stroke-width: 1.3; }
+    .thumbnail img { width: 100%; height: 100%; object-fit: contain; }
+    .folder .thumbnail { height: 80px; place-items: center start; padding: 15px; }
+    .folder .thumbnail > .icon { color: #7ca8ff; }
+
+    .card h3 {
+      font-size: 15px;
+      margin: 0 0 8px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .card-meta { font-size: 11px; color: var(--muted); }
+    .card-path {
+      font-size: 10px;
+      color: #8697b7;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-top: 8px;
+    }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 0 16px 16px;
+    }
+
+    .card-bottom > span {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #8194b9;
+      text-transform: uppercase;
+    }
+
+    .card-actions { display: flex; gap: 6px; }
+    .card-actions .icon-btn { width: 35px; height: 35px; border-radius: 11px; }
+    .card-actions .icon { width: 17px; height: 17px; }
+
+    .empty { padding: 55px 20px; text-align: center; color: var(--muted); }
+    .empty .icon { width: 40px; height: 40px; margin-bottom: 12px; }
+    .more-wrap { display: flex; justify-content: center; padding-top: 25px; }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-bottom: 30px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       04. PREVIEW
+       ========================================================= */
+    dialog {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: #0b101e;
+      border-radius: 22px;
+      padding: 0;
+      box-shadow: var(--shadow);
+    }
+
+    dialog::backdrop { background: #000c; backdrop-filter: blur(8px); }
+    #preview { width: min(1150px, 95vw); height: 90dvh; }
+    .preview-layout { height: 100%; display: flex; flex-direction: column; }
+    .preview-head {
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    #previewTitle {
+      margin: 0;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .preview-tools { display: flex; gap: 7px; flex-shrink: 0; }
+    .preview-body {
+      min-height: 0;
+      flex: 1;
+      position: relative;
+      overflow: auto;
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      background: #050810;
+    }
+
+    .preview-body img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .preview-body img.zoomed { max-width: none; max-height: none; }
+    .preview-body iframe { border: 0; width: 100%; height: 100%; background: white; }
+    .preview-foot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    #pageLabel { font-size: 12px; color: var(--muted); }
+    .preview-message { text-align: center; color: var(--muted); padding: 30px; }
+
+    /* =========================================================
+       05. DOWNLOAD SPLASH
+       ========================================================= */
+    #downloadDialog {
+      width: 100vw;
+      max-width: none;
+      height: 100dvh;
+      max-height: none;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      background: #000;
+    }
+
+    #downloadDialog[open] { animation: blackout .65s ease both; }
+    #downloadDialog::backdrop { background: #000; }
+
+    .download-layout {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .download-symbol {
+      width: 68px;
+      height: 68px;
+      display: grid;
+      place-items: center;
+      background: #548cff19;
+      color: #73a2ff;
+      border: 1px solid #548cff45;
+      border-radius: 22px;
+      margin-bottom: 28px;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .download-symbol .icon { width: 32px; height: 32px; }
+    #downloadTitle { font-size: 25px; font-weight: 500; letter-spacing: 2px; }
+    .progress-track {
+      width: min(420px, 85vw);
+      height: 27px;
+      padding: 4px;
+      border: 2px solid white;
+      border-radius: 10px;
+      margin: 24px 0 14px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 4px;
+      background: repeating-linear-gradient(
+        115deg, #2870ef 0, #2870ef 12px, #76b8ff 12px, #76b8ff 23px
+      );
+      background-size: 50px 100%;
+      animation: stripes .7s linear infinite;
+      transition: width .15s linear;
+    }
+
+    #downloadStatus { color: #a5b6d1; font-size: 13px; max-width: 550px; }
+    .made-by { color: #6c7991; font-size: 12px; letter-spacing: 3px; margin: 28px 0; }
+    .download-controls { display: flex; gap: 12px; }
+    #saveDownload { width: 54px; height: 54px; }
+    #cancelDownload { width: 54px; height: 54px; }
+
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: #203354;
+      border: 1px solid #548cff60;
+      box-shadow: var(--shadow);
+      border-radius: 14px;
+      padding: 13px 20px;
+      width: max-content;
+      max-width: 90vw;
+      font-size: 13px;
+    }
+
+    .spin { animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes drift { to { transform: translate(10vw, 8vh); } }
+    @keyframes float { 50% { transform: translateY(-7px); } }
+    @keyframes stripes { to { background-position: 50px 0; } }
+    @keyframes blackout { from { opacity: 0; } to { opacity: 1; } }
+
+    @media (max-width: 600px) {
+      .hero { padding-top: 40px; }
+      h1 { letter-spacing: -2px; }
+      .library { padding: 15px; border-radius: 22px; }
+      .toolbar { gap: 7px; flex-wrap: wrap; }
+      .search { flex-basis: calc(100% - 55px); }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .card-open { padding: 12px 12px 10px; }
+      .card h3 { font-size: 13px; }
+      .card-bottom { padding: 0 10px 12px; }
+      .card-bottom > span { display: none; }
+      .card-actions { margin-left: auto; }
+      .thumbnail { height: 100px; }
+      .preview-head { flex-wrap: wrap; }
+      footer { flex-direction: column; }
+      .stats { gap: 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header>
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="Chasmis home">
+        <span class="brand-mark" data-icon="book"></span>
+        <span><strong>chasmis.</strong><small>THE PRACTICE SPACE</small></span>
+      </a>
+      <div class="nav-actions">
+        <button id="bookmarkFilter" class="icon-btn"
+                title="Show bookmarks" aria-label="Show bookmarks"
+                aria-pressed="false" data-icon="bookmark"></button>
+        <button id="refresh" class="icon-btn"
+                title="Sync with GitHub" aria-label="Sync with GitHub"
+                data-icon="refresh"></button>
+        <a id="repoLink" class="icon-btn" target="_blank"
+           rel="noopener noreferrer" title="Open GitHub repository"
+           aria-label="Open GitHub repository" data-icon="github"></a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span>Class 10 / SEE preparation</div>
+      <h1>Small practice.<br><span>Big possibilities.</span></h1>
+      <p>
+        Your next chapter starts with one more set. Explore, preview,
+        and download practice materials for every subject.
+        <br><span class="school">Vijaya samudayik shiksha sadan</span>
+      </p>
+      <div class="stats">
+        <div class="stat"><strong id="subjectCount">0</strong><span>Subjects</span></div>
+        <div class="stat"><strong id="folderCount">0</strong><span>Practice folders</span></div>
+        <div class="stat"><strong id="fileCount">0</strong><span>Study files</span></div>
+      </div>
+    </section>
+
+    <section class="library" aria-label="Practice set library">
+      <div class="toolbar">
+        <label class="search">
+          <span data-icon="search"></span>
+          <input id="search" type="search"
+                 placeholder="Search every subject, set, and file..."
+                 aria-label="Search all practice materials">
+        </label>
+        <button id="downloadFolder" class="icon-btn primary"
+                title="Download this folder as ZIP"
+                aria-label="Download this folder as ZIP"
+                data-icon="download"></button>
+      </div>
+
+      <nav id="breadcrumbs" class="breadcrumbs" aria-label="Folder path"></nav>
+
+      <div class="section-line">
+        <h2 id="sectionTitle">Your subjects</h2>
+        <span id="resultCount"></span>
+      </div>
+
+      <div id="notice" class="notice" role="status" aria-live="polite">
+        Connecting to your practice library...
+      </div>
+
+      <div id="grid" class="grid"></div>
+      <div id="empty" class="empty" hidden></div>
+
+      <div class="more-wrap">
+        <button id="loadMore" class="icon-btn" title="Show more items"
+                aria-label="Show more items" data-icon="more" hidden></button>
+      </div>
+    </section>
+
+    <footer>
+      <span>Practice materials only. Not an official SEE examination portal.</span>
+      <span>made by <strong>Prajwal</strong></span>
+    </footer>
+  </main>
+
+  <dialog id="preview" aria-labelledby="previewTitle">
+    <div class="preview-layout">
+      <div class="preview-head">
+        <h2 id="previewTitle">Preview</h2>
+        <div class="preview-tools">
+          <button id="zoomPreview" class="icon-btn" title="Toggle image zoom"
+                  aria-label="Toggle image zoom" data-icon="zoom"></button>
+          <a id="openOriginal" class="icon-btn" target="_blank"
+             rel="noopener noreferrer" title="Open original file"
+             aria-label="Open original file" data-icon="external"></a>
+          <button id="downloadPreview" class="icon-btn primary"
+                  title="Download this file" aria-label="Download this file"
+                  data-icon="download"></button>
+          <button id="closePreview" class="icon-btn" title="Close preview"
+                  aria-label="Close preview" data-icon="close"></button>
+        </div>
+      </div>
+      <div id="previewBody" class="preview-body"></div>
+      <div class="preview-foot">
+        <button id="previousPage" class="icon-btn" title="Previous file"
+                aria-label="Previous file" data-icon="left"></button>
+        <span id="pageLabel"></span>
+        <button id="nextPage" class="icon-btn" title="Next file"
+                aria-label="Next file" data-icon="right"></button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="downloadDialog" aria-labelledby="downloadTitle">
+    <div class="download-layout">
+      <div class="download-symbol" data-icon="download"></div>
+      <h2 id="downloadTitle">downloading...</h2>
+      <div id="progressTrack" class="progress-track"
+           role="progressbar" aria-label="Download preparation"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <p id="downloadStatus" role="status" aria-live="polite">Preparing files...</p>
+      <p class="made-by">made by Prajwal</p>
+      <div class="download-controls">
+        <a id="saveDownload" class="icon-btn primary" hidden
+           title="Save download" aria-label="Save download"
+           data-icon="download"></a>
+        <button id="cancelDownload" class="icon-btn"
+                title="Cancel download" aria-label="Cancel download"
+                data-icon="close"></button>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="toast" role="status" hidden></div>
+
+  <script>
+    "use strict";
+
+    /* =========================================================
+       01. CONFIGURATION - CHANGE THE REPOSITORY NAME HERE
+       ========================================================= */
+    const CONFIG = Object.freeze({
+      owner: "DeveloperPrajwalYT",
+      repo: "Project-Chasmis", // Use the EXACT repository URL name.
+      root: "subjects",
+      syncEvery: 10 * 60 * 1000,
+      splashMinimum: 10 * 1000,
+      pageSize: 48,
+      concurrentDownloads: 3,
+      // Conservative mobile-friendly limit for in-memory ZIP creation.
+      maxDownloadBytes: 150 * 1024 * 1024,
+      maxDownloadFiles: 1000
+    });
+
+    /* =========================================================
+       02. ICONS & HELPERS
+       ========================================================= */
+    const ICONS = {
+      book: '<path d="M4 4h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-3H4z"/><path d="M13 7a3 3 0 0 1 3-3h4v14h-3a4 4 0 0 0-4 3"/>',
+      folder: '<path d="M3 7a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v9H3z"/>',
+      file: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h4M9 12h6M9 16h6"/>',
+      image: '<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/>',
+      search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',
+      download: '<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/>',
+      bookmark: '<path d="M6 3h12v18l-6-4-6 4z"/>',
+      refresh: '<path d="M20 7v5h-5M4 17v-5h5"/><path d="M6 6a8 8 0 0 1 13 2M5 16a8 8 0 0 0 13 2"/>',
+      github: '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1 .1-2-.5-2.5 3-.3 6-1.5 6-6A5 5 0 0 0 19 6c.2-1 0-2-.5-3-2 0-3 1-4 1a14 14 0 0 0-5 0C8 3 7 3 5.5 3 5 4 5 5 5.2 6A5 5 0 0 0 4 9.5c0 4.5 3 5.7 6 6-.6.5-1 1.5-1 2.5v4"/>',
+      eye: '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+      close: '<path d="m6 6 12 12M6 18 18 6"/>',
+      left: '<path d="m15 5-7 7 7 7"/>',
+      right: '<path d="m9 5 7 7-7 7"/>',
+      external: '<path d="M14 3h7v7M21 3 10 14M10 4H4v16h16v-6"/>',
+      zoom: '<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M7 10h6M10 7v6"/>',
+      more: '<path d="M12 5v14M5 12h14"/>',
+      home: '<path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8"/>'
+    };
+
+    const $ = id => document.getElementById(id);
+    const svg = name =>
+      `<svg class="icon" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+       stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ICONS.file}</svg>`;
+
+    document.querySelectorAll("[data-icon]").forEach(el => {
+      el.innerHTML = svg(el.dataset.icon);
+    });
+
+    const encodePath = path => path.split("/").map(encodeURIComponent).join("/");
+    const parentPath = path => path.split("/").slice(0, -1).join("/");
+    const baseName = path => path.split("/").pop();
+    const extension = path => (path.split(".").pop() || "").toLowerCase();
+    const isImage = path => /^(png|jpe?g|webp|gif|avif|bmp)$/i.test(extension(path));
+    const isPreviewable = path => isImage(path) || extension(path) === "pdf";
+    const supported = /\.(pdf|png|jpe?g|webp|gif|avif|bmp|txt|docx?|pptx?|xlsx?|zip)$/i;
+    const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+
+    function formatBytes(bytes) {
+      if (bytes < 1024) return `${bytes} B`;
+      if (bytes < 1024 ** 2) return `${(bytes / 1024).toFixed(1)} KB`;
+      return `${(bytes / 1024 ** 2).toFixed(1)} MB`;
+    }
+
+    function readStorage(key, fallback) {
+      try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
+      catch { return fallback; }
+    }
+
+    function writeStorage(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); }
+      catch { /* The library still works when storage is unavailable. */ }
+    }
+
+    function iconButton(name, label, handler) {
+      const button = document.createElement("button");
+      button.className = "icon-btn";
+      button.type = "button";
+      button.title = label;
+      button.setAttribute("aria-label", label);
+      button.innerHTML = svg(name);
+      button.addEventListener("click", handler);
+      return button;
+    }
+
+    let toastTimer;
+    function toast(message) {
+      $("toast").textContent = message;
+      $("toast").hidden = false;
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => $("toast").hidden = true, 4500);
+    }
+
+    function notice(message) {
+      $("notice").textContent = message;
+      $("notice").hidden = !message;
+    }
+
+    /* =========================================================
+       03. APPLICATION STATE
+       ========================================================= */
+    const storagePrefix = `chasmis:${CONFIG.owner}/${CONFIG.repo}:${CONFIG.root}`;
+    const cached = readStorage(`${storagePrefix}:catalog`, null);
+    const savedBookmarks = readStorage(`${storagePrefix}:bookmarks`, []);
+
+    const state = {
+      files: [],
+      nodes: new Map(),
+      branch: "main",
+      current: CONFIG.root,
+      query: "",
+      bookmarksOnly: false,
+      bookmarks: new Set(Array.isArray(savedBookmarks) ? savedBookmarks : []),
+      visible: CONFIG.pageSize,
+      syncing: false,
+      syncedAt: 0,
+      previewFiles: [],
+      previewIndex: 0,
+      download: null
+    };
+
+    const repoAPI = `[api.github.com](https://api.github.com/repos/${encodeURIComponent(CONFIG.owner)}/${encodeURIComponent(CONFIG.repo)})`;
+
+    $("repoLink").href =
+      `[github.com](https://github.com/${encodeURIComponent(CONFIG.owner)}/${encodeURIComponent(CONFIG.repo)})`;
+
+    function rawURL(file) {
+      return `[raw.githubusercontent.com](https://raw.githubusercontent.com/${encodeURIComponent(CONFIG.owner)}/${encodeURIComponent(CONFIG.repo)}/${encodeURIComponent(state.branch)}/${encodePath(file.path)})`;
+    }
+
+    /* =========================================================
+       04. GITHUB CATALOG SYNC
+       ========================================================= */
+    async function api(path) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 25000);
+      try {
+        const response = await fetch(`${repoAPI}${path}`, {
+          signal: controller.signal,
+          headers: { Accept: "application/vnd.github+json" },
+          cache: "no-cache"
+        });
+
+        if (!response.ok) {
+          if (response.status === 404) {
+            throw new Error("Repository not found. Check CONFIG.repo and make sure the repository is public.");
+          }
+
+          if (response.status === 403 || response.status === 429) {
+            const reset = response.headers.get("x-ratelimit-reset");
+            const when = reset
+              ? ` Try again after ${new Date(Number(reset) * 1000).toLocaleTimeString()}.`
+              : " Please try again later.";
+            throw new Error(`GitHub access or request limit reached.${when}`);
+          }
+
+          throw new Error(`GitHub returned HTTP ${response.status}.`);
+        }
+
+        return await response.json();
+      } catch (error) {
+        if (error.name === "AbortError") {
+          throw new Error("GitHub took too long to respond. Try syncing again.");
+        }
+        throw error;
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    function buildCatalog(files) {
+      state.files = files;
+      state.nodes = new Map();
+
+      state.nodes.set(CONFIG.root, {
+        path: CONFIG.root,
+        name: "All subjects",
+        folder: true,
+        count: 0,
+        size: 0
+      });
+
+      for (const file of files) {
+        state.nodes.set(file.path, {
+          ...file, name: baseName(file.path), folder: false
+        });
+
+        let parent = parentPath(file.path);
+
+        while (parent === CONFIG.root || parent.startsWith(`${CONFIG.root}/`)) {
+          if (!state.nodes.has(parent)) {
+            state.nodes.set(parent, {
+              path: parent,
+              name: baseName(parent),
+              folder: true,
+              count: 0,
+              size: 0
+            });
+          }
+
+          const folder = state.nodes.get(parent);
+          folder.count++;
+          folder.size += file.size || 0;
+
+          if (parent === CONFIG.root) break;
+          parent = parentPath(parent);
+        }
+      }
+
+      if (!state.nodes.has(state.current)) state.current = CONFIG.root;
+
+      const folders = [...state.nodes.values()].filter(n => n.folder);
+      const subjects = folders.filter(n =>
+        n.path !== CONFIG.root && parentPath(n.path) === CONFIG.root
+      );
+
+      $("subjectCount").textContent = subjects.length;
+      $("folderCount").textContent = Math.max(0, folders.length - subjects.length - 1);
+      $("fileCount").textContent = files.length;
+      render();
+    }
+
+    async function sync(manual = false) {
+      if (state.syncing) return;
+      if (!manual && Date.now() - state.syncedAt < CONFIG.syncEvery) return;
+
+      state.syncing = true;
+      $("refresh").disabled = true;
+      $("refresh").firstElementChild.classList.add("spin");
+
+      try {
+        if (!state.files.length) notice("Connecting to GitHub...");
+        const repository = await api("");
+        const branch = repository.default_branch;
+        const tree = await api(`/git/trees/${encodeURIComponent(branch)}?recursive=1`);
+
+        // Never display an incomplete catalog as if it were complete.
+        if (tree.truncated) {
+          throw new Error("This repository is too large for a single catalog request. Split the library or use a generated manifest.");
+        }
+
+        const files = tree.tree
+          .filter(item =>
+            item.type === "blob" &&
+            item.path.startsWith(`${CONFIG.root}/`) &&
+            !item.path.split("/").some(part => part.startsWith(".")) &&
+            supported.test(item.path)
+          )
+          .map(item => ({
+            path: item.path,
+            size: item.size || 0,
+            sha: item.sha
+          }));
+
+        state.branch = branch;
+        state.syncedAt = Date.now();
+        buildCatalog(files);
+
+        writeStorage(`${storagePrefix}:catalog`, {
+          branch, files, syncedAt: state.syncedAt
+        });
+
+        notice(files.length
+          ? `Synced at ${new Date(state.syncedAt).toLocaleTimeString()}. New uploads are checked every 10 minutes.`
+          : `No study files yet. Upload PDFs or images inside ${CONFIG.root}/Science/CDC SET #1/ and commit your changes.`);
+
+        if (manual) toast("Library synced with GitHub.");
+      } catch (error) {
+        notice(`${state.files.length ? "Showing cached materials. " : ""}${error.message}`);
+      } finally {
+        state.syncing = false;
+        $("refresh").disabled = false;
+        $("refresh").firstElementChild.classList.remove("spin");
+      }
+    }
+
+    /* =========================================================
+       05. FOLDER NAVIGATION, SEARCH & CARDS
+       ========================================================= */
+    function navigate(path) {
+      state.query = "";
+      $("search").value = "";
+      state.bookmarksOnly = false;
+      updateBookmarkFilter();
+      location.hash = path === CONFIG.root ? "" : encodeURIComponent(path);
+      applyHash();
+    }
+
+    function applyHash() {
+      let path = CONFIG.root;
+      try { path = decodeURIComponent(location.hash.slice(1)) || CONFIG.root; }
+      catch { /* Ignore malformed hashes. */ }
+
+      state.current = state.nodes.get(path)?.folder ? path : CONFIG.root;
+      state.visible = CONFIG.pageSize;
+      render();
+    }
+
+    function renderBreadcrumbs() {
+      $("breadcrumbs").replaceChildren();
+      const root = document.createElement("button");
+      root.className = "crumb";
+      root.innerHTML = svg("home");
+      root.title = "All subjects";
+      root.setAttribute("aria-label", "All subjects");
+      root.onclick = () => navigate(CONFIG.root);
+      $("breadcrumbs").append(root);
+
+      const parts = state.current.slice(CONFIG.root.length).split("/").filter(Boolean);
+      let path = CONFIG.root;
+
+      for (const part of parts) {
+        path += `/${part}`;
+        const target = path;
+        const separator = document.createElement("span");
+        separator.textContent = "/";
+        separator.className = "muted";
+
+        const button = document.createElement("button");
+        button.className = `crumb${path === state.current ? " current" : ""}`;
+        button.textContent = part;
+        button.onclick = () => navigate(target);
+        $("breadcrumbs").append(separator, button);
+      }
+    }
+
+    function toggleBookmark(node, button) {
+      if (state.bookmarks.has(node.path)) state.bookmarks.delete(node.path);
+      else state.bookmarks.add(node.path);
+
+      writeStorage(`${storagePrefix}:bookmarks`, [...state.bookmarks]);
+      const active = state.bookmarks.has(node.path);
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+      if (state.bookmarksOnly) render();
+    }
+
+    function createCard(node, index) {
+      const card = document.createElement("article");
+      card.className = `card${node.folder ? " folder" : ""}`;
+      card.style.setProperty("--delay", `${Math.min(index, 12) * 22}ms`);
+
+      const open = document.createElement("button");
+      open.className = "card-open";
+      open.title = node.folder ? `Open ${node.name}` : `Preview ${node.name}`;
+      open.onclick = () => node.folder ? navigate(node.path) : openPreview(node);
+
+      const thumbnail = document.createElement("div");
+      thumbnail.className = "thumbnail";
+
+      if (!node.folder && isImage(node.path)) {
+        const image = document.createElement("img");
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.alt = "";
+        image.src = rawURL(node);
+        image.onerror = () => thumbnail.innerHTML = svg("image");
+        thumbnail.append(image);
+      } else {
+        thumbnail.innerHTML = svg(node.folder ? "folder" : "file");
+      }
+
+      const title = document.createElement("h3");
+      title.textContent = node.name;
+
+      const meta = document.createElement("div");
+      meta.className = "card-meta";
+      meta.textContent = node.folder
+        ? `${node.count} files / ${formatBytes(node.size)}`
+        : `${extension(node.path).toUpperCase()} / ${formatBytes(node.size)}`;
+
+      open.append(thumbnail, title, meta);
+
+      if (state.query || state.bookmarksOnly) {
+        const path = document.createElement("div");
+        path.className = "card-path";
+        path.textContent = parentPath(node.path).replace(`${CONFIG.root}/`, "");
+        path.title = path.textContent;
+        open.append(path);
+      }
+
+      const bottom = document.createElement("div");
+      bottom.className = "card-bottom";
+
+      const label = document.createElement("span");
+      label.textContent = node.folder ? "Collection" : "Practice";
+
+      const actions = document.createElement("div");
+      actions.className = "card-actions";
+
+      const bookmark = iconButton("bookmark", `Bookmark ${node.name}`, () => {
+        toggleBookmark(node, bookmark);
+      });
+      bookmark.classList.toggle("active", state.bookmarks.has(node.path));
+      bookmark.setAttribute("aria-pressed", String(state.bookmarks.has(node.path)));
+
+      const view = iconButton(node.folder ? "right" : "eye",
+        node.folder ? `Open ${node.name}` : `Preview ${node.name}`,
+        () => node.folder ? navigate(node.path) : openPreview(node));
+
+      const download = iconButton("download", `Download ${node.name}`,
+        () => startDownload(node));
+
+      actions.append(bookmark, view, download);
+      bottom.append(label, actions);
+      card.append(open, bottom);
+      return card;
+    }
+
+    function render() {
+      renderBreadcrumbs();
+
+      const query = state.query.trim().toLocaleLowerCase();
+      let nodes = [...state.nodes.values()].filter(n => n.path !== CONFIG.root);
+
+      if (state.bookmarksOnly) {
+        nodes = nodes.filter(n => state.bookmarks.has(n.path));
+      } else if (!query) {
+        nodes = nodes.filter(n => parentPath(n.path) === state.current);
+      }
+
+      if (query) nodes = nodes.filter(n => n.path.toLocaleLowerCase().includes(query));
+
+      nodes.sort((a, b) =>
+        Number(b.folder) - Number(a.folder) || collator.compare(a.path, b.path)
+      );
+
+      $("sectionTitle").textContent = state.bookmarksOnly
+        ? "Your bookmarks"
+        : query ? "Search results"
+        : state.current === CONFIG.root ? "Your subjects"
+        : baseName(state.current);
+
+      $("resultCount").textContent = `${nodes.length} items`;
+      $("grid").replaceChildren();
+
+      const fragment = document.createDocumentFragment();
+      nodes.slice(0, state.visible).forEach((node, index) => {
+        fragment.append(createCard(node, index));
+      });
+      $("grid").append(fragment);
+
+      $("empty").hidden = nodes.length > 0;
+      $("empty").textContent = state.bookmarksOnly
+        ? "No bookmarks here yet. Use the bookmark symbol on a file or folder."
+        : query ? "No matching materials found."
+        : "No practice materials here yet.";
+
+      $("loadMore").hidden = nodes.length <= state.visible;
+
+      const folder = state.nodes.get(state.current);
+      $("downloadFolder").disabled = !folder?.count;
+      const downloadLabel = `Download ${folder?.name || "all subjects"} as ZIP`;
+      $("downloadFolder").title = downloadLabel;
+      $("downloadFolder").setAttribute("aria-label", downloadLabel);
+    }
+
+    function updateBookmarkFilter() {
+      $("bookmarkFilter").classList.toggle("active", state.bookmarksOnly);
+      $("bookmarkFilter").setAttribute("aria-pressed", String(state.bookmarksOnly));
+    }
+
+    /* =========================================================
+       06. IMAGE / PDF PREVIEW
+       ========================================================= */
+    function openPreview(file) {
+      const siblings = state.files
+        .filter(f => parentPath(f.path) === parentPath(file.path) && isPreviewable(f.path))
+        .sort((a, b) => collator.compare(a.path, b.path));
+
+      state.previewFiles = isPreviewable(file.path) ? siblings : [file];
+      state.previewIndex = Math.max(0,
+        state.previewFiles.findIndex(f => f.path === file.path));
+
+      showPreview();
+      if (!$("preview").open) $("preview").showModal();
+    }
+
+    function showPreview() {
+      const file = state.previewFiles[state.previewIndex];
+      if (!file) return;
+
+      $("previewTitle").textContent = file.path.slice(CONFIG.root.length + 1);
+      $("openOriginal").href = rawURL(file);
+      $("previewBody").replaceChildren();
+      $("zoomPreview").hidden = !isImage(file.path);
+
+      if (isImage(file.path)) {
+        const image = document.createElement("img");
+        image.alt = file.name || baseName(file.path);
+        image.src = rawURL(file);
+        image.onerror = () => {
+          $("previewBody").textContent =
+            "Image unavailable. Try opening the original file or syncing again.";
+        };
+        $("previewBody").append(image);
+      } else if (extension(file.path) === "pdf") {
+        const frame = document.createElement("iframe");
+        frame.title = `PDF preview: ${baseName(file.path)}`;
+        frame.src = rawURL(file);
+        $("previewBody").append(frame);
+      } else {
+        const message = document.createElement("p");
+        message.className = "preview-message";
+        message.textContent =
+          "This file type has no built-in preview. Use the open-original or download symbol.";
+        $("previewBody").append(message);
+      }
+
+      $("pageLabel").textContent =
+        `${state.previewIndex + 1} / ${state.previewFiles.length}`;
+      $("previousPage").disabled = state.previewIndex === 0;
+      $("nextPage").disabled = state.previewIndex === state.previewFiles.length - 1;
+    }
+
+    function movePreview(direction) {
+      const next = state.previewIndex + direction;
+      if (next < 0 || next >= state.previewFiles.length) return;
+      state.previewIndex = next;
+      showPreview();
+    }
+
+    /* =========================================================
+       07. DOWNLOADS: REAL FETCHING + MINIMUM 10-SECOND SPLASH
+       ========================================================= */
+    function folderFiles(path) {
+      return state.files.filter(file => file.path.startsWith(`${path}/`));
+    }
+
+    function setProgress(value) {
+      const percent = Math.max(0, Math.min(100, Math.round(value)));
+      $("progressFill").style.width = `${percent}%`;
+      $("progressTrack").setAttribute("aria-valuenow", String(percent));
+    }
+
+    function safeDownloadName(name) {
+      return name.replace(/[<>:"/\\|?*\u0000-\u001f]/g, "_").slice(0, 150);
+    }
+
+    function cancelDownload() {
+      const task = state.download;
+      if (!task) {
+        $("downloadDialog").close();
+        return;
+      }
+
+      task.cancelled = true;
+      task.controller.abort();
+      clearInterval(task.timer);
+      if (task.url) URL.revokeObjectURL(task.url);
+      state.download = null;
+      $("saveDownload").removeAttribute("href");
+      $("downloadDialog").close();
+    }
+
+    async function fetchBlob(file, task) {
+      const response = await fetch(rawURL(file), {
+        signal: task.controller.signal
+      });
+
+      if (!response.ok) {
+        throw new Error(`Could not download ${baseName(file.path)} (HTTP ${response.status}).`);
+      }
+
+      const reader = response.body?.getReader();
+      let blob;
+
+      if (reader) {
+        const chunks = [];
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          task.bytes += value.byteLength;
+          if (task.bytes > CONFIG.maxDownloadBytes) {
+            task.controller.abort();
+            throw new Error("Download exceeded the memory safety limit. Download smaller folders.");
+          }
+          chunks.push(value);
+        }
+        blob = new Blob(chunks, {
+          type: response.headers.get("content-type") || "application/octet-stream"
+        });
+      } else {
+        blob = await response.blob();
+        task.bytes += blob.size;
+        if (task.bytes > CONFIG.maxDownloadBytes) {
+          throw new Error("Download exceeded the memory safety limit.");
+        }
+      }
+
+      // Git LFS pointer files are not the actual uploaded documents.
+      if (blob.size < 1024) {
+        const text = await blob.text();
+        if (text.startsWith("version [git-lfs.github.com](https://git-lfs.github.com/spec/)")) {
+          throw new Error("A file uses Git LFS. Upload ordinary files instead, or use a server-backed downloader.");
+        }
+      }
+
+      return blob;
+    }
+
+    async function startDownload(node) {
+      if (!node || state.download) return;
+
+      // Snapshot the list so catalog refreshes cannot change this download.
+      const files = node.folder ? folderFiles(node.path) : [{ ...node }];
+      if (!files.length) return toast("This folder has no downloadable files.");
+
+      const totalSize = files.reduce((sum, file) => sum + (file.size || 0), 0);
+
+      if (totalSize > CONFIG.maxDownloadBytes || files.length > CONFIG.maxDownloadFiles) {
+        return toast("This collection is too large for a safe browser ZIP. Download smaller set folders.");
+      }
+
+      if (node.folder && !window.JSZip) {
+        return toast("The ZIP library did not load. Check your connection and reload the page.");
+      }
+
+      const task = {
+        controller: new AbortController(),
+        cancelled: false,
+        bytes: 0,
+        completed: 0,
+        progress: 0,
+        started: performance.now(),
+        timer: null,
+        url: null,
+        phase: "Fetching"
+      };
+
+      state.download = task;
+      $("saveDownload").hidden = true;
+      $("downloadTitle").textContent = "downloading...";
+      $("cancelDownload").title = "Cancel download";
+      $("cancelDownload").setAttribute("aria-label", "Cancel download");
+      $("downloadStatus").textContent = `Preparing ${files.length} file(s)...`;
+      setProgress(0);
+      $("downloadDialog").showModal();
+
+      // The bar is limited by BOTH real preparation and the requested
+      // 10-second minimum. It never claims completion before the file is ready.
+      task.timer = setInterval(() => {
+        const elapsed = performance.now() - task.started;
+        const timeProgress = Math.min(100, elapsed / CONFIG.splashMinimum * 100);
+        setProgress(Math.min(timeProgress, task.progress));
+        $("downloadStatus").textContent = task.phase === "Ready"
+          ? "Files are ready. Finishing the 10-second splash..."
+          : `${task.phase}: ${task.completed}/${files.length} files / ${formatBytes(task.bytes)}`;
+      }, 120);
+
+      try {
+        let blob;
+        let filename;
+
+        if (!node.folder) {
+          blob = await fetchBlob(files[0], task);
+          task.completed = 1;
+          filename = safeDownloadName(baseName(files[0].path));
+        } else {
+          const zip = new JSZip();
+          let cursor = 0;
+
+          async function worker() {
+            while (!task.cancelled) {
+              const index = cursor++;
+              if (index >= files.length) return;
+
+              const file = files[index];
+              const data = await fetchBlob(file, task);
+              if (task.cancelled) return;
+
+              // Keep the selected folder and all nested paths inside the ZIP.
+              const prefix = parentPath(node.path);
+              const relative = file.path.slice(prefix ? prefix.length + 1 : 0);
+              zip.file(relative, data);
+              task.completed++;
+              task.progress = task.completed / files.length * 80;
+            }
+          }
+
+          await Promise.all(
+            Array.from({
+              length: Math.min(CONFIG.concurrentDownloads, files.length)
+            }, () => worker())
+          );
+
+          if (task.cancelled) return;
+          task.phase = "Building ZIP";
+
+          // PDFs and images are already compressed. STORE is faster and
+          // avoids expensive recompression on students' phones.
+          blob = await zip.generateAsync({
+            type: "blob",
+            compression: "STORE"
+          }, metadata => {
+            if (task.cancelled) throw new Error("Download cancelled.");
+            task.progress = 80 + metadata.percent * .19;
+          });
+
+          filename = `${safeDownloadName(node.name || "Chasmis-Practice-Sets")}.zip`;
+        }
+
+        if (task.cancelled) return;
+        task.progress = 100;
+        task.phase = "Ready";
+
+        const remaining = Math.max(
+          0, CONFIG.splashMinimum - (performance.now() - task.started)
+        );
+        await new Promise(resolve => setTimeout(resolve, remaining));
+
+        if (task.cancelled) return;
+        clearInterval(task.timer);
+        setProgress(100);
+
+        task.url = URL.createObjectURL(blob);
+        $("saveDownload").href = task.url;
+        $("saveDownload").download = filename;
+        $("saveDownload").hidden = false;
+        $("downloadTitle").textContent = "download ready";
+        $("downloadStatus").textContent =
+          `${formatBytes(blob.size)} ready. Tap the blue download symbol to save.`;
+        $("cancelDownload").title = "Close download screen";
+        $("cancelDownload").setAttribute("aria-label", "Close download screen");
+        $("saveDownload").focus();
+
+        // Explicit save click works better than an automatic download after
+        // asynchronous work, especially with mobile browser restrictions.
+      } catch (error) {
+        task.controller.abort();
+        clearInterval(task.timer);
+        if (task.cancelled) return;
+
+        $("downloadTitle").textContent = "download failed";
+        $("downloadStatus").textContent =
+          error.message || "Unable to prepare the download. Please try again.";
+        $("cancelDownload").title = "Close download screen";
+        $("cancelDownload").setAttribute("aria-label", "Close download screen");
+      }
+    }
+
+    /* =========================================================
+       08. EVENTS & STARTUP
+       ========================================================= */
+    $("search").addEventListener("input", event => {
+      state.query = event.target.value;
+      state.visible = CONFIG.pageSize;
+      render();
+    });
+
+    $("bookmarkFilter").onclick = () => {
+      state.bookmarksOnly = !state.bookmarksOnly;
+      state.visible = CONFIG.pageSize;
+      updateBookmarkFilter();
+      render();
+    };
+
+    $("refresh").onclick = () => sync(true);
+    $("downloadFolder").onclick = () =>
+      startDownload(state.nodes.get(state.current));
+
+    $("loadMore").onclick = () => {
+      state.visible += CONFIG.pageSize;
+      render();
+    };
+
+    $("closePreview").onclick = () => $("preview").close();
+    $("preview").addEventListener("close", () => {
+      $("previewBody").replaceChildren();
+    });
+
+    $("previousPage").onclick = () => movePreview(-1);
+    $("nextPage").onclick = () => movePreview(1);
+
+    $("zoomPreview").onclick = () => {
+      $("previewBody").querySelector("img")?.classList.toggle("zoomed");
+    };
+
+    $("downloadPreview").onclick = () =>
+      startDownload(state.previewFiles[state.previewIndex]);
+
+    $("cancelDownload").onclick = cancelDownload;
+
+    $("downloadDialog").addEventListener("cancel", event => {
+      event.preventDefault();
+      cancelDownload();
+    });
+
+    $("saveDownload").addEventListener("click", () => {
+      $("downloadStatus").textContent =
+        "Save requested. Your browser controls where the file is saved.";
+    });
+
+    document.addEventListener("keydown", event => {
+      if (!$("preview").open || $("downloadDialog").open) return;
+      if (event.key === "ArrowLeft") movePreview(-1);
+      if (event.key === "ArrowRight") movePreview(1);
+    });
+
+    window.addEventListener("hashchange", applyHash);
+    window.addEventListener("online", () => sync());
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) sync();
+    });
+
+    setInterval(() => {
+      if (!document.hidden) sync();
+    }, CONFIG.syncEvery);
+
+    if (cached && Array.isArray(cached.files) && typeof cached.branch === "string") {
+      state.branch = cached.branch;
+      state.syncedAt = Number(cached.syncedAt) || 0;
+      buildCatalog(cached.files);
+      notice(`Showing saved catalog from ${new Date(state.syncedAt).toLocaleString()}.`);
+    } else {
+      buildCatalog([]);
+    }
+
+    applyHash();
+    sync();
+  </script>
+</body>
+</html>
