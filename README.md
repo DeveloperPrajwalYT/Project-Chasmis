@@ -1,1 +1,20 @@
 # Project-Chasmis
+index.html
+subjects/
+├── Science/
+│   ├── CDC SET #1/
+│   │   ├── Page 01.jpg
+│   │   ├── Page 02.jpg
+│   │   └── Answers.pdf
+│   └── CDC SET #2/
+│       └── Questions.pdf
+├── Mathematics/
+│   └── Practice Set 01/
+│       └── Questions.png
+├── Optional Mathematics/
+│   └── Model Sets/
+│       └── Set 01/
+│           └── Questions.pdf
+└── English/
+    └── Practice Set 01.pdf
+    
