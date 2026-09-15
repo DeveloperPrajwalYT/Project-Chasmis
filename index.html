@@ -10,7 +10,7 @@
 
   <!-- ZIP downloads use this pinned external dependency. -->
   <script defer
-    src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js)">
+    src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js">
   </script>
 
   <style>
@@ -807,13 +807,13 @@
       download: null
     };
 
-    const repoAPI = `[api.github.com](https://api.github.com/repos/${encodeURIComponent(CONFIG.owner)}/${encodeURIComponent(CONFIG.repo)})`;
+    const repoAPI = `https://api.github.com/repos/${encodeURIComponent(CONFIG.owner)}/${encodeURIComponent(CONFIG.repo)}`;
 
     $("repoLink").href =
-      `[github.com](https://github.com/${encodeURIComponent(CONFIG.owner)}/${encodeURIComponent(CONFIG.repo)})`;
+      `https://github.com/${encodeURIComponent(CONFIG.owner)}/${encodeURIComponent(CONFIG.repo)}`;
 
     function rawURL(file) {
-      return `[raw.githubusercontent.com](https://raw.githubusercontent.com/${encodeURIComponent(CONFIG.owner)}/${encodeURIComponent(CONFIG.repo)}/${encodeURIComponent(state.branch)}/${encodePath(file.path)})`;
+      return `https://raw.githubusercontent.com/${encodeURIComponent(CONFIG.owner)}/${encodeURIComponent(CONFIG.repo)}/${encodeURIComponent(state.branch)}/${encodePath(file.path)}`;
     }
 
     /* =========================================================
